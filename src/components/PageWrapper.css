@@ -1,0 +1,14 @@
+.page-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 16px;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+
+  /* iOS Safari 대응을 위한 높이 설정 */
+  height: 100dvh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fefefe;
+}
