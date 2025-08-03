@@ -38,7 +38,7 @@ function Chat() {
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem(getTodayKey())) || [];
     if (saved.length === 0) {
-      setMessages([{ type: "bot", text: "오늘 기분은 어땠나요?" }]);
+      setMessages([{ type: "bot", text: "당신의 기분은\n어떤가요?" }]);
     } else {
       setMessages(saved);
     }
@@ -92,18 +92,38 @@ function Chat() {
   return (
     <PageWrapper>
       <div className="chat-container">
-        <h2>MoodMate</h2>
-        <div className="chat-box">
-          {messages.map((msg, idx) => (
-            <div
-              key={idx}
-              className={`chat-message ${msg.type === "user" ? "user" : "bot"}`}
-            >
-              {msg.text}
+        {/* 헤더 영역 */}
+        <div className="header">
+          <div className="logo-container">
+            <div className="mood-characters">
+              <div className="character character-1">😊</div>
+              <div className="character character-2">😢</div>
+              <div className="character character-3">😴</div>
+              <div className="character character-4">😄</div>
             </div>
-          ))}
+            <div className="app-title">MOODMATE</div>
+          </div>
         </div>
 
+        {/* 채팅 영역 */}
+        <div className="chat-area">
+          <div className="chat-box">
+            {messages.map((msg, idx) => (
+              <div key={idx} className="chat-message-wrapper">
+                {msg.type === "bot" ? (
+                  <div className="chat-message-container">
+                    <div className="bot-character">😊</div>
+                    <div className="message-bubble">{msg.text}</div>
+                  </div>
+                ) : (
+                  <div className="chat-message-user">{msg.text}</div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 입력창 */}
         <div className="chat-input-bar">
           <input
             type="text"

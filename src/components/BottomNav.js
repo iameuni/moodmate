@@ -3,10 +3,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./BottomNav.css";
 
 const tabs = [
-  { icon: "💬", label: "입력", path: "/chat" },
-  { icon: "📔", label: "도감", path: "/collection" },
-  { icon: "🗓️", label: "캘린더", path: "/history" },
-  { icon: "👤", label: "마이", path: "/settings" },
+  { icon: "🏠", label: "홈", path: "/chat" },
+  { icon: "📚", label: "도감", path: "/collection" },
+  { icon: "📅", label: "캘린더", path: "/history" },
+  { icon: "👤", label: "마이페이지", path: "/settings" },
 ];
 
 function BottomNav() {
@@ -24,7 +24,7 @@ function BottomNav() {
           onClick={() => navigate(tab.path)}
         >
           <div className="tab-icon">{tab.icon}</div>
-          <div className="tab-label">{tab.label}</div>
+          <div className="tab-text">{tab.label}</div>
         </div>
       ))}
     </nav>
